@@ -29,6 +29,16 @@ if( ! function_exists('checkuser')){
     }
 }
 
+if( ! function_exists('checkcustomer')){
+    function checkcustomer($username,$pass){
+        error_reporting(0);
+        $CI =& get_instance();
+        $CI->load->model("Devices_Model", "dM", true);
+        $customer_info = $CI->dM->customer_check($username,$pass);
+        return $customer_info;
+    }
+}
+
 if(!function_exists('__checkdevice'))
 {
     function __checkdevice($ip){
@@ -36,7 +46,7 @@ if(!function_exists('__checkdevice'))
         $CI =& get_instance();
         $CI->load->library("session");
         $CI->load->model("Devices_Model", "dM", true);
-        $device = $CI->dM->checkDevice($ip);
+        $device = $CI->dM->checkDeviceByIp($ip);
         return $device;
     }
 }

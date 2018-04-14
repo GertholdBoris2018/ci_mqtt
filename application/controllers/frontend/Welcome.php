@@ -39,4 +39,6 @@ class Welcome extends CI_Controller {
         $this->load->view('frontend/welcome',$data);
         $this->load->view('frontend/footer');
     }
+
+    
 }

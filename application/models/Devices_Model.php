@@ -22,7 +22,7 @@ class Devices_Model extends CI_Model {
         }
         $this->db->delete($table);
     }
-    function checkDevice($ip){
+    function checkDeviceByIp($ip){
         $rlt = array();
         $this->db->select('*')
             ->from(DB_PREFIX.'devices')
@@ -30,6 +30,31 @@ class Devices_Model extends CI_Model {
             ->where(DB_PREFIX.'devices.ipaddress',$ip);
        
         $query = $this->db->get();
+
+        if ( $query->num_rows() > 0 )
+        {
+            $result = $query->result();
+            foreach($result as $row){
+                $item = array(
+                    'customer_id' => $row->customer_id,
+                    'name' => $row->name,
+                    'password' => $row->password,
+                    'device_id' => $row->device_id
+                );
+                array_push($rlt, $item);
+            }
+        }
+
+        return $rlt;
+    }
+
+    function checkDeviceByCustomer($customerId){
+        $rlt = array();
+        $this->db->select('*')
+            ->from(DB_PREFIX.'devices')
+            ->join(DB_PREFIX.'customers' , DB_PREFIX.'devices.customer_id = '. DB_PREFIX.'customers.customer_id', 'left')
+            ->where(DB_PREFIX.'devices.customer_id',$customerId);
+            $query = $this->db->get();
 
         if ( $query->num_rows() > 0 )
         {
@@ -74,6 +99,30 @@ class Devices_Model extends CI_Model {
     function delete_device($id){
         $this->delete(DB_PREFIX.'devices',$id,'device_id');
         return 1;
+    }
+
+    function customer_check($username, $password){
+        $rlt = array();
+        $this->db->select('*')
+            ->from(DB_PREFIX.'customers')
+            ->where('name',$username)
+            ->where('password' , $password);
+
+        $query = $this->db->get();
+
+        if ( $query->num_rows() > 0 )
+        {
+            $result = $query->result();
+            $rlt["customer_id"] = $result[0]->customer_id;
+            $rlt["name"] = $result[0]->name;
+            $rlt["password"] = $result[0]->password;
+        }
+        else{
+            $rlt["customer_id"] = INVALIDUSER;
+            $rlt["name"] = INVALIDUSER;
+            $rlt["password"] = INVALIDUSER;
+        }
+        return $rlt;
     }
 }
 ?>

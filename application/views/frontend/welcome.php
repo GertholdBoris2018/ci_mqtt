@@ -1,8 +1,40 @@
-<?php
-    var_dump($devices);
+<!-- Banner -->
+<?php 
+    if($this->session->userdata('isCustomerlogin') && count($devices) == 0){
+        ?>
+        <script>
+            $.notify({
+                // options
+                icon : 'glyphicon glyphicon-warning-sign',
+                title : 'MQTT Notification - ',
+                message: 'You are logged in but you have no devices.' 
+            },{
+                // settings
+                offset : 50,
+                type: 'warning',
+                allow_dismiss: true,
+                newest_on_top : true,
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                offset: {
+                    x: "20",
+                    y: "20"
+                },
+                spacing : "50",
+                delay: 5000,
+	            timer: 1000,
+                z_index : 999999
+            });
+        </script>
+        <?php
+    }
+
+    
+    
 ?>
 
-<!-- Banner -->
 <section id="banner">
     <div class="inner">
         <h2>WELCOME MQTT WEBSITE</h2>

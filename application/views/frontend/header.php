@@ -84,6 +84,8 @@
     <script src="<?php echo FRONTEND_JS_PATH;?>skel-layers.min.js"></script>
     <script src="<?php echo FRONTEND_JS_PATH;?>init.js"></script>
     <script src="<?php echo FRONTEND_JS_PATH;?>jquery.slicknav.min.js"></script>
+    <script src="<?php echo FRONTEND_JS_PATH;?>bootstrap-notify.min.js"></script>
+   
     <noscript>
         <link rel="stylesheet" href="<?php echo FRONTEND_CSS_PATH;?>skel.css" />
         <link rel="stylesheet" href="<?php echo FRONTEND_CSS_PATH;?>style.css" />
@@ -101,7 +103,7 @@
     <nav id="nav">
         <ul>
             <?php
-                if(count($devices) == 0){
+                if(count($devices) == 0 && !$this->session->userdata('isCustomerlogin')){
                     ?>
                     <li class="<?php echo isset($selected) && $selected == 'about'?'active':'';?>"><a href="<?php echo base_url();?>frontend/about"><?php echo lang('top_about');?></a></li>
                     <li class="<?php echo isset($selected) && $selected == 'home'?'active':'';?>"><a href="<?php echo base_url();?>frontend/welcome"><?php echo lang('top_home');?></a></li>
@@ -137,41 +139,41 @@
     </nav>
     <ul id="mobilemenu">
         <?php
-        if(count($devices) == 0){
-            ?>
-            <li><a href="<?php echo base_url();?>frontend/about"><?php echo lang('top_about');?></a></li>
-            <li><a href="<?php echo base_url();?>frontend/welcome"><?php echo lang('top_home');?></a></li>
-            <li>
-                <?php echo lang('top_more');?>
-                <ul>
-                    <li class="padding-no">
-                        <a style='font-size:1em;' href="<?php echo base_url();?>frontend/pages/help"><?php echo lang('top_help');?></a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="<?php echo base_url();?>frontend/login"><?php echo lang('top_login');?></a></li>
-            <?php
-        }
-        else{
-            ?>
-            <li><a href="<?php echo base_url();?>frontend/about"><?php echo lang('top_about');?></a></li>
-            <li><a href="<?php echo base_url();?>frontend/welcome"><?php echo lang('top_home');?></a></li>
-            <li><a href="#"><?php echo lang('top_wifi');?></a></li>
-            <li><a href="#"><?php echo lang('top_other_devices');?></a></li>
-            <li><a href="#"><?php echo lang('top_content_management');?></a></li>
-            <li><a href="#"><?php echo lang('top_devices_on_network');?></a></li>
-            <li>
-                <?php echo lang('top_more');?>
-                <ul>
-                    <li class="padding-no">
-                        <a style='font-size:1em;' href="<?php echo base_url();?>frontend/pages/help"><?php echo lang('top_help');?></a>
-                    </li>
-                    <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_settings');?></a></li>
-                    <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_manage_wifi');?></a></li>
-                </ul>
-            </li>
+            if(count($devices) == 0 && !$this->session->userdata('isCustomerlogin')){
+                ?>
+                <li><a href="<?php echo base_url();?>frontend/about"><?php echo lang('top_about');?></a></li>
+                <li><a href="<?php echo base_url();?>frontend/welcome"><?php echo lang('top_home');?></a></li>
+                <li>
+                    <?php echo lang('top_more');?>
+                    <ul>
+                        <li class="padding-no">
+                            <a style='font-size:1em;' href="<?php echo base_url();?>frontend/pages/help"><?php echo lang('top_help');?></a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="<?php echo base_url();?>frontend/login"><?php echo lang('top_login');?></a></li>
+                <?php
+            }
+            else{
+                ?>
+                <li><a href="<?php echo base_url();?>frontend/about"><?php echo lang('top_about');?></a></li>
+                <li><a href="<?php echo base_url();?>frontend/welcome"><?php echo lang('top_home');?></a></li>
+                <li><a href="#"><?php echo lang('top_wifi');?></a></li>
+                <li><a href="#"><?php echo lang('top_other_devices');?></a></li>
+                <li><a href="#"><?php echo lang('top_content_management');?></a></li>
+                <li><a href="#"><?php echo lang('top_devices_on_network');?></a></li>
+                <li>
+                    <?php echo lang('top_more');?>
+                    <ul>
+                        <li class="padding-no">
+                            <a style='font-size:1em;' href="<?php echo base_url();?>frontend/pages/help"><?php echo lang('top_help');?></a>
+                        </li>
+                        <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_settings');?></a></li>
+                        <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_manage_wifi');?></a></li>
+                    </ul>
+                </li>
         <?php
-        }
+            }
             ?>
     </ul>
     <script>
