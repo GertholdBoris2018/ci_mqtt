@@ -54,16 +54,14 @@ class Login extends CI_Controller {
             $user = $this->input->post('username');
             $password = $this->input->post('password');
             $customer_info = checkcustomer($user, $password);
-            var_dump($user);
-            var_dump($password);
-            var_dump($customer_info);
+            //var_dump($customer_info);
             $customer_id = $customer_info["customer_id"];
             if ($customer_id != INVALIDUSER)
             {
                 $customerdata = array(
                     "isCustomerlogin" => true,
                     "customer_name" => $customer_info["name"],
-                    "customer_id" => $customer_info["customer_id"],
+                    "dev_client_code" => $customer_info["dev_client_code"],
                     "customer_pass" => $customer_info['password']
                 );
                 $this->session->set_userdata($customerdata);
@@ -83,4 +81,8 @@ class Login extends CI_Controller {
         }
     }
     
+    public function doLogout(){
+        $this->session->sess_destroy();
+        redirect('frontend/welcome/');
+    }
 }

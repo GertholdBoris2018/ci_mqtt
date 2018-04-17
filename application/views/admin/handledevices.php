@@ -33,12 +33,12 @@
                     <h2 class="panel-title"><?php echo !isset($device)?lang('side_cts_28'):lang('side_cts_29');?></h2>
                 </header>
                 <div class="panel-body">
-                    <form id="form" class="form-horizontal form-bordered" method="post" action="<?php echo base_url();?>admin/management/<?php echo !isset($device)?'add_device':'edit_device/'.$device[0]->device_id;?>" enctype="multipart/form-data">
+                    <form id="form" class="form-horizontal form-bordered" method="post" action="<?php echo base_url();?>admin/management/<?php echo !isset($device)?'add_device':'edit_device/'.$device[0]->UID;?>" enctype="multipart/form-data">
                         
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="inputDefault" ><?php echo lang('side_cts_30');?> <span class="required">*</span></label>
                             <div class="col-md-6">
-                                <input type="text" name="ipaddress" class="form-control" id="inputDefault" value="<?php echo !isset($device)?'':$device[0]->ipaddress;?>"required>
+                                <input type="text" name="ipaddress" class="form-control" id="inputDefault" value="<?php echo !isset($device)?'':$device[0]->dev_v4_external_ipaddress;?>"required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,7 +50,7 @@
                                     
                                         foreach($customers as $customer){
                                             ?>
-                                            <option value="<?php echo $customer->customer_id;?>" <?php echo (isset($device) && ($device[0]->customer_id == $customer->customer_id)) ? 'selected':'';?>><?php echo $customer->name;?></option>
+                                            <option value="<?php echo $customer->customer_id;?>" <?php echo (isset($device) && ($device[0]->dev_client_code == $customer->customer_id)) ? 'selected':'';?>><?php echo $customer->name;?></option>
                                             <?php
                                         }
                                     ?>

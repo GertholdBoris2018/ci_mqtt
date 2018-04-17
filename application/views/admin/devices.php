@@ -58,12 +58,12 @@
                         foreach($devices as $device){
                             ?>
                             <tr>
-                                <td><?php echo $device->device_id;?></td>
-                                <td><?php echo $device->ipaddress;?></td>
+                                <td><?php echo $device->UID;?></td>
+                                <td><?php echo $device->dev_v4_external_ipaddress;?></td>
                                 <td><?php echo $device->name;?></td>
                                 <td class="actions">
-                                    <a href="<?php echo base_url();?>admin/management/deviceedit/<?php echo $device->device_id?>"><i class="fa fa-pencil"></i></a>
-                                    <a href="javascript:;" class="delete-row" onclick="deleteDevice('<?php echo $device->device_id;?>')"><i class="fa fa-trash-o"></i></a>
+                                    <a href="<?php echo base_url();?>admin/management/deviceedit/<?php echo $device->UID?>"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:;" class="delete-row" onclick="deleteDevice('<?php echo $device->UID;?>')"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                             <?php

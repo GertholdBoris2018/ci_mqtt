@@ -36,15 +36,15 @@ $lang['side_cts_21'] = 'Add Customer';
 $lang['side_cts_22'] = 'Edit Customer';
 $lang['side_cts_23'] = 'Password';
 
-$lang['side_cts_24'] = 'Device Id';
-$lang['side_cts_25'] = 'Ip Address';
+$lang['side_cts_24'] = 'UID';
+$lang['side_cts_25'] = 'IpV4 Address';
 $lang['side_cts_26'] = 'Assigned User';
 $lang['side_cts_27'] = 'Password';
 
 $lang['side_cts_28'] = 'Add Device';
 $lang['side_cts_29'] = 'Edit Device';
 
-$lang['side_cts_30'] = 'IpAddress';
+$lang['side_cts_30'] = 'Ipv4 Address';
 $lang['side_cts_31'] = 'Assign User';
 $lang['side_cts_32'] = '';
 $lang['side_cts_33'] = '';
@@ -77,7 +77,7 @@ $lang['top_more'] = 'More';
 
 $lang['top_settings'] = 'Settings';
 $lang['top_manage_wifi'] = 'Manage WiFi';
-
+$lang['top_logout'] = 'Log Out';
 $lang['side_management'] = 'Management';
 $lang['side_user_list'] = 'Customer List';
 $lang['side_device_list'] = 'Device List';

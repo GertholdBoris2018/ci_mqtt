@@ -26,8 +26,8 @@ class Devices_Model extends CI_Model {
         $rlt = array();
         $this->db->select('*')
             ->from(DB_PREFIX.'devices')
-            ->join(DB_PREFIX.'customers' , DB_PREFIX.'devices.customer_id = '. DB_PREFIX.'customers.customer_id', 'left')
-            ->where(DB_PREFIX.'devices.ipaddress',$ip);
+            ->join(DB_PREFIX.'customers' , DB_PREFIX.'devices.dev_client_code = '. DB_PREFIX.'customers.customer_id', 'left')
+            ->where(DB_PREFIX.'devices.dev_v4_external_ipaddress',$ip);
        
         $query = $this->db->get();
 
@@ -36,10 +36,10 @@ class Devices_Model extends CI_Model {
             $result = $query->result();
             foreach($result as $row){
                 $item = array(
-                    'customer_id' => $row->customer_id,
+                    'dev_client_code' => $row->dev_client_code,
                     'name' => $row->name,
                     'password' => $row->password,
-                    'device_id' => $row->device_id
+                    'UID' => $row->UID
                 );
                 array_push($rlt, $item);
             }
@@ -52,8 +52,8 @@ class Devices_Model extends CI_Model {
         $rlt = array();
         $this->db->select('*')
             ->from(DB_PREFIX.'devices')
-            ->join(DB_PREFIX.'customers' , DB_PREFIX.'devices.customer_id = '. DB_PREFIX.'customers.customer_id', 'left')
-            ->where(DB_PREFIX.'devices.customer_id',$customerId);
+            ->join(DB_PREFIX.'customers' , DB_PREFIX.'devices.dev_client_code = '. DB_PREFIX.'customers.customer_id', 'left')
+            ->where(DB_PREFIX.'devices.dev_client_code',$customerId);
             $query = $this->db->get();
 
         if ( $query->num_rows() > 0 )
@@ -61,10 +61,10 @@ class Devices_Model extends CI_Model {
             $result = $query->result();
             foreach($result as $row){
                 $item = array(
-                    'customer_id' => $row->customer_id,
+                    'dev_client_code' => $row->dev_client_code,
                     'name' => $row->name,
                     'password' => $row->password,
-                    'device_id' => $row->device_id
+                    'UID' => $row->UID
                 );
                 array_push($rlt, $item);
             }
@@ -76,7 +76,7 @@ class Devices_Model extends CI_Model {
     function get_total_devices(){
         return $this->db
             ->select("*")
-            ->join(DB_PREFIX."customers as cu", "cu.customer_id = de.customer_id")
+            ->join(DB_PREFIX."customers as cu", "cu.customer_id = de.dev_client_code")
             ->get(DB_PREFIX."devices as de")->result();
     }
 
@@ -87,17 +87,17 @@ class Devices_Model extends CI_Model {
     function get_device_by_id($id){
         return $this->db
             ->select("*")
-            ->where("device_id",$id)
+            ->where("UID",$id)
             ->get(DB_PREFIX."devices")->result();
     }
 
     function edit_device($data , $id){
-        $this->update(DB_PREFIX.'devices', $data , $id , "device_id");
+        $this->update(DB_PREFIX.'devices', $data , $id , "UID");
         return 1;
     }
 
     function delete_device($id){
-        $this->delete(DB_PREFIX.'devices',$id,'device_id');
+        $this->delete(DB_PREFIX.'devices',$id,'UID');
         return 1;
     }
 

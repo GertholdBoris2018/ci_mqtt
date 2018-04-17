@@ -103,8 +103,8 @@ class Management extends CI_Controller {
     public function add_device(){
         $post = $this->input->post();
         $data = array(
-            "ipaddress" => $post['ipaddress'],
-            "customer_id" => $post['assignedCustomer']
+            "dev_v4_external_ipaddress" => $post['ipaddress'],
+            "dev_client_code" => $post['assignedCustomer']
         );
         $new_id = $this->dM->add_new_device($data);
         redirect(base_url().'admin/management/devices');
@@ -122,8 +122,8 @@ class Management extends CI_Controller {
     public function edit_device($id){
         $post = $this->input->post();
         $data = array(
-            "ipaddress" => $post['ipaddress'],
-            "customer_id" => $post['assignedCustomer']
+            "dev_v4_external_ipaddress" => $post['ipaddress'],
+            "dev_client_code" => $post['assignedCustomer']
         );
         $this->dM->edit_device($data,$id);
         redirect(base_url().'admin/management/devices');

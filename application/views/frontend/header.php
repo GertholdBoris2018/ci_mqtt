@@ -130,6 +130,7 @@
                             <li class="padding-no"><a style='font-size:1em;' href="<?php echo base_url();?>frontend/pages/help"><?php echo lang('top_help');?></a></li>
                             <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_settings');?></a></li>
                             <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_manage_wifi');?></a></li>
+                            <li class="padding-no"><a style='font-size:1em;' href="<?php echo base_url();?>frontend/Login/doLogout"><?php echo lang('top_logout');?></a></li>
                         </ul>
                     </li>
                 <?php
@@ -170,6 +171,7 @@
                         </li>
                         <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_settings');?></a></li>
                         <li class="padding-no"><a style='font-size:1em;' href="#"><?php echo lang('top_manage_wifi');?></a></li>
+                        <li class="padding-no"><a style='font-size:1em;' href="<?php echo base_url();?>frontend/Login/doLogout"><?php echo lang('top_logout');?></a></li>
                     </ul>
                 </li>
         <?php
