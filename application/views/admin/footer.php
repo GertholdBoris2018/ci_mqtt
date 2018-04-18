@@ -104,21 +104,7 @@
         window.setTimeout(function () { $("#message").html(''); }, 2000);
     }
 
-        $(".cate_check").each(function(){
-            var ele = $(this);
-            console.log(ele.attr("id"));
-            <?php
-            if(isset($portfolio))
-                $catechks = explode(",",$portfolio[0]->category_id);
-            foreach($catechks as $chk){
-            ?>
-            if("<?php echo $chk;?>".trim() == ele.attr("id")){
-                $(this).prop('checked', true);
-            }
-            <?php
-            }
-            ?>
-        });
+        
     $(document).ready(function(){
         $('#datatable-users').dataTable({
             
