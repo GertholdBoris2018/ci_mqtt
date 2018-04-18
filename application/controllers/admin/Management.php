@@ -104,7 +104,34 @@ class Management extends CI_Controller {
         $post = $this->input->post();
         $data = array(
             "dev_v4_external_ipaddress" => $post['ipaddress'],
-            "dev_client_code" => $post['assignedCustomer']
+            "dev_client_code" => $post['assignedCustomer'],
+            "dev_mac" => $post['dev_mac'],
+            "dev_deleted" => $post['dev_deleted'],
+            "dev_connected" => $post['dev_connected'],
+            "dev_reseller_code" => $post['dev_reseller_code'],
+            "dev_active" => $post['dev_active'],
+            "dev_chargable" => $post['dev_chargable'],
+            "dev_location_contact" => $post['dev_location_contact'],
+            "dev_contract_type" => $post['dev_contract_type'],
+            "dev_contract_start_date" => $post['dev_contract_start_date'],
+            "dev_contract_end_date" => $post['dev_contract_end_date'],
+            "dev_v4_internal_ipaddress" => $post['dev_v4_internal_ipaddress'],
+            "dev_v6_internal_ipaddress" => $post['dev_v6_internal_ipaddress'],
+            "dev_v6_external_ipaddress" => $post['dev_v6_external_ipaddress'],
+            "dev_v4_def_router_ipaddress" => $post['dev_v4_def_router_ipaddress'],
+            "dev_v6_def_router_ipaddress" => $post['dev_v6_def_router_ipaddress'],
+            "dev_external_ip_heartbeat" => $post['dev_external_ip_heartbeat'],
+            "dev_network_carrier" => $post['dev_network_carrier'],
+            "dev_owner" => $post['dev_owner'],
+            "dev_manufacture_date" => $post['dev_manufacture_date'],
+            "dev_warrantee_date" => $post['dev_warrantee_date'],
+            "dev_type" => $post['dev_type'],
+            "dev_shipping_date" => $post['dev_shipping_date'],
+            "dev_model" => $post['dev_model'],
+            "dev_model_rev" => $post['dev_model_rev'],
+            "dev_current_firmware" => $post['dev_current_firmware'],
+            "dev_bar_code" => $post['dev_bar_code'],
+            "dev_code" => $post['dev_code']
         );
         $new_id = $this->dM->add_new_device($data);
         redirect(base_url().'admin/management/devices');
@@ -123,7 +150,34 @@ class Management extends CI_Controller {
         $post = $this->input->post();
         $data = array(
             "dev_v4_external_ipaddress" => $post['ipaddress'],
-            "dev_client_code" => $post['assignedCustomer']
+            "dev_client_code" => $post['assignedCustomer'],
+            "dev_mac" => $post['dev_mac'],
+            "dev_deleted" => $post['dev_deleted'],
+            "dev_connected" => $post['dev_connected'],
+            "dev_reseller_code" => $post['dev_reseller_code'],
+            "dev_active" => $post['dev_active'],
+            "dev_chargable" => $post['dev_chargable'],
+            "dev_location_contact" => $post['dev_location_contact'],
+            "dev_contract_type" => $post['dev_contract_type'],
+            "dev_contract_start_date" => $post['dev_contract_start_date'],
+            "dev_contract_end_date" => $post['dev_contract_end_date'],
+            "dev_v4_internal_ipaddress" => $post['dev_v4_internal_ipaddress'],
+            "dev_v6_internal_ipaddress" => $post['dev_v6_internal_ipaddress'],
+            "dev_v6_external_ipaddress" => $post['dev_v6_external_ipaddress'],
+            "dev_v4_def_router_ipaddress" => $post['dev_v4_def_router_ipaddress'],
+            "dev_v6_def_router_ipaddress" => $post['dev_v6_def_router_ipaddress'],
+            "dev_external_ip_heartbeat" => $post['dev_external_ip_heartbeat'],
+            "dev_network_carrier" => $post['dev_network_carrier'],
+            "dev_owner" => $post['dev_owner'],
+            "dev_manufacture_date" => $post['dev_manufacture_date'],
+            "dev_warrantee_date" => $post['dev_warrantee_date'],
+            "dev_type" => $post['dev_type'],
+            "dev_shipping_date" => $post['dev_shipping_date'],
+            "dev_model" => $post['dev_model'],
+            "dev_model_rev" => $post['dev_model_rev'],
+            "dev_current_firmware" => $post['dev_current_firmware'],
+            "dev_bar_code" => $post['dev_bar_code'],
+            "dev_code" => $post['dev_code']
         );
         $this->dM->edit_device($data,$id);
         redirect(base_url().'admin/management/devices');
