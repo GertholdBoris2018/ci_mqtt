@@ -113,8 +113,8 @@ class Management extends CI_Controller {
             "dev_chargable" => $post['dev_chargable'],
             "dev_location_contact" => $post['dev_location_contact'],
             "dev_contract_type" => $post['dev_contract_type'],
-            "dev_contract_start_date" => $post['dev_contract_start_date'],
-            "dev_contract_end_date" => $post['dev_contract_end_date'],
+            "dev_contract_start_date" => date('Y-m-d',strtotime($post['dev_contract_start_date'])),
+            "dev_contract_end_date" => date('Y-m-d',strtotime($post['dev_contract_end_date'])),
             "dev_v4_internal_ipaddress" => $post['dev_v4_internal_ipaddress'],
             "dev_v6_internal_ipaddress" => $post['dev_v6_internal_ipaddress'],
             "dev_v6_external_ipaddress" => $post['dev_v6_external_ipaddress'],
@@ -123,10 +123,10 @@ class Management extends CI_Controller {
             "dev_external_ip_heartbeat" => $post['dev_external_ip_heartbeat'],
             "dev_network_carrier" => $post['dev_network_carrier'],
             "dev_owner" => $post['dev_owner'],
-            "dev_manufacture_date" => $post['dev_manufacture_date'],
-            "dev_warrantee_date" => $post['dev_warrantee_date'],
+            "dev_manufacture_date" => date('Y-m-d',strtotime($post['dev_manufacture_date'])),
+            "dev_warrantee_date" => date('Y-m-d',strtotime($post['dev_warrantee_date'])),
             "dev_type" => $post['dev_type'],
-            "dev_shipping_date" => $post['dev_shipping_date'],
+            "dev_shipping_date" => date('Y-m-d',strtotime($post['dev_shipping_date'])),
             "dev_model" => $post['dev_model'],
             "dev_model_rev" => $post['dev_model_rev'],
             "dev_current_firmware" => $post['dev_current_firmware'],
@@ -134,7 +134,7 @@ class Management extends CI_Controller {
             "dev_code" => $post['dev_code']
         );
         $new_id = $this->dM->add_new_device($data);
-        redirect(base_url().'admin/management/devices');
+        //redirect(base_url().'admin/management/devices');
     }
 
     public function deviceedit($id){
@@ -159,8 +159,8 @@ class Management extends CI_Controller {
             "dev_chargable" => $post['dev_chargable'],
             "dev_location_contact" => $post['dev_location_contact'],
             "dev_contract_type" => $post['dev_contract_type'],
-            "dev_contract_start_date" => $post['dev_contract_start_date'],
-            "dev_contract_end_date" => $post['dev_contract_end_date'],
+            "dev_contract_start_date" => date('Y-m-d',strtotime($post['dev_contract_start_date'])),
+            "dev_contract_end_date" => date('Y-m-d',strtotime($post['dev_contract_end_date'])),
             "dev_v4_internal_ipaddress" => $post['dev_v4_internal_ipaddress'],
             "dev_v6_internal_ipaddress" => $post['dev_v6_internal_ipaddress'],
             "dev_v6_external_ipaddress" => $post['dev_v6_external_ipaddress'],
@@ -169,10 +169,10 @@ class Management extends CI_Controller {
             "dev_external_ip_heartbeat" => $post['dev_external_ip_heartbeat'],
             "dev_network_carrier" => $post['dev_network_carrier'],
             "dev_owner" => $post['dev_owner'],
-            "dev_manufacture_date" => $post['dev_manufacture_date'],
-            "dev_warrantee_date" => $post['dev_warrantee_date'],
+            "dev_manufacture_date" => date('Y-m-d',strtotime($post['dev_manufacture_date'])),
+            "dev_warrantee_date" => date('Y-m-d',strtotime($post['dev_warrantee_date'])),
             "dev_type" => $post['dev_type'],
-            "dev_shipping_date" => $post['dev_shipping_date'],
+            "dev_shipping_date" => date('Y-m-d',strtotime($post['dev_shipping_date'])),
             "dev_model" => $post['dev_model'],
             "dev_model_rev" => $post['dev_model_rev'],
             "dev_current_firmware" => $post['dev_current_firmware'],
@@ -180,6 +180,7 @@ class Management extends CI_Controller {
             "dev_code" => $post['dev_code']
         );
         $this->dM->edit_device($data,$id);
+        //echo date('Y-m-d',strtotime($post['dev_contract_start_date']));
         redirect(base_url().'admin/management/devices');
     }
 
