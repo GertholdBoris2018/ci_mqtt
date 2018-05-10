@@ -33,7 +33,7 @@
                     <h2 class="panel-title"><?php echo !isset($customer)?lang('side_cts_21'):lang('side_cts_22');?></h2>
                 </header>
                 <div class="panel-body">
-                    <form id="form" class="form-horizontal form-bordered" method="post" action="<?php echo base_url();?>admin/management/<?php echo !isset($customer)?'add_customer':'edit_customer/'.$customer[0]->customer_id;?>" enctype="multipart/form-data">
+                    <form id="form" class="form-horizontal form-bordered" method="post" action="<?php echo base_url();?>admin/management/<?php echo !isset($customer)?'add_customer':'edit_customer/'.$customer[0]->UID;?>" enctype="multipart/form-data">
                         
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="inputDefault" ><?php echo lang('side_cts_20');?> <span class="required">*</span></label>

@@ -50,7 +50,7 @@
                                     
                                         foreach($customers as $customer){
                                             ?>
-                                            <option value="<?php echo $customer->customer_id;?>" <?php echo (isset($device) && ($device[0]->dev_client_code == $customer->customer_id)) ? 'selected':'';?>><?php echo $customer->name;?></option>
+                                            <option value="<?php echo $customer->UID;?>" <?php echo (isset($device) && ($device[0]->dev_client_code == $customer->UID)) ? 'selected':'';?>><?php echo $customer->name;?></option>
                                             <?php
                                         }
                                     ?>

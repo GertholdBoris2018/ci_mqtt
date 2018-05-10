@@ -56,7 +56,7 @@ class Users_Model extends CI_Model {
     function get_customer_by_id($id){
         return $this->db
             ->select("*")
-            ->where("customer_id",$id)
+            ->where("UID",$id)
             ->get(DB_PREFIX."customers")->result();
     }
 
@@ -65,12 +65,12 @@ class Users_Model extends CI_Model {
     }
 
     function edit_customer($data, $id){
-        $this->update(DB_PREFIX.'customers', $data , $id , "customer_id");
+        $this->update(DB_PREFIX.'customers', $data , $id , "UID");
         return 1;
     }
 
     function delete_customer($id){
-        $this->delete(DB_PREFIX.'customers',$id,'customer_id');
+        $this->delete(DB_PREFIX.'customers',$id,'UID');
         return 1;
     }
 }

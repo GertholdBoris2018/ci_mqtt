@@ -55,7 +55,7 @@ class Login extends CI_Controller {
             $password = $this->input->post('password');
             $customer_info = checkcustomer($user, $password);
             //var_dump($customer_info);
-            $customer_id = $customer_info["customer_id"];
+            $customer_id = $customer_info["UID"];
             if ($customer_id != INVALIDUSER)
             {
                 $customerdata = array(

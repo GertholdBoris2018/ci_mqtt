@@ -57,11 +57,11 @@
                         foreach($customers as $customer){
                             ?>
                             <tr>
-                                <td><?php echo $customer->customer_id;?></td>
+                                <td><?php echo $customer->UID;?></td>
                                 <td><?php echo $customer->name;?></td>
                                 <td class="actions">
-                                    <a href="<?php echo base_url();?>admin/Management/useredit/<?php echo $customer->customer_id?>"><i class="fa fa-pencil"></i></a>
-                                    <a href="javascript:;" class="delete-row" onclick="deleteCustomer('<?php echo $customer->customer_id;?>')"><i class="fa fa-trash-o"></i></a>
+                                    <a href="<?php echo base_url();?>admin/Management/useredit/<?php echo $customer->UID?>"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:;" class="delete-row" onclick="deleteCustomer('<?php echo $customer->UID;?>')"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                             <?php
